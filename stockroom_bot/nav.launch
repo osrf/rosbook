@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find fetch_navigation)/launch/fetch_nav.launch">
+    <arg name="map_file" value="$(find storeroom_bot)/map.yaml"/>
+  </include>
+  <node pkg="storeroom_bot" name="initial_localization" type="initial_localization.py"/>
+</launch>

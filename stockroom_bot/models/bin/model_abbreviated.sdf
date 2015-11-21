@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<sdf version ='1.4'>
+  <model name ='box'> <1>
+    <static>true</static> <2>
+    <link name='bottom'> <3>
+      <collision name="collision_bottom">
+        <geometry>
+          <box>
+            <size>0.4 0.4 0.02</size> <4>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_left"> <5>
+        <pose>-0.2 0 0.1 0 0 0</pose> <6>
+        <geometry><box><size>0.02 0.4 0.2</size></box></geometry>
+      </collision>
+      <visual name="visual_bottom">
+        <geometry><box><size>0.4 0.4 0.02</size></box></geometry>
+        <material><script><name>Gazebo/Blue</name></script></material> <7>
+      </visual>
+      <visual name="visual_left">
+        <pose>-0.2 0 0.1 0 0 0</pose>
+        <geometry><box><size>0.02 0.4 0.2</size></box></geometry>
+        <material><script><name>Gazebo/Blue</name></script></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

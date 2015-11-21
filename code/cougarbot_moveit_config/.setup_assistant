@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cougarbot
+    relative_path: cougarbot.urdf
+  SRDF:
+    relative_path: config/cougarbot.srdf
+  CONFIG:
+    generated_timestamp: 1435889692

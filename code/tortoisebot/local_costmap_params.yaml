@@ -1,0 +1,4 @@
+local_costmap:
+  global_frame: /odom
+  robot_base_frame: base_link
+  rolling_window: true

@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+<world name="stockroom">
+<gui>
+  <camera name="camera"> <1>
+    <pose>3 -2 3.5 0.0 .85 2.4</pose> 
+    <view_controller>orbit</view_controller>
+  </camera>
+</gui>
+<include><uri>model://sun</uri></include>
+<include><uri>model://ground_plane</uri></include>
+@{from numpy import arange} <2>
+@{bin_count = 0}
+@[for side in ['left','right']] <3>
+  @[if side == 'left']
+    @{y = -1.5} <4>
+    @{yaw = 3.1415}
+  @[else]
+    @{y = 1.5}
+    @{yaw = 0}
+  @[end if]
+  @[for x in arange(-1.5, 1.5, 0.5)] <5>
+    <include>
+      <name>bin_@(bin_count)</name> <6>
+      <pose>@(x) @(y) 0.5 0 0 @(yaw)</pose> <7>
+      <uri>model://bin</uri> <8>
+    </include>
+    <model name="bin_@(bin_count)_tag"> <9>
+      <static>true</static>
+      <pose>@(x) @(y*1.125) 0.63 0 0 @(yaw)</pose> <10>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.2 0.01 0.2</size></box></geometry>
+          <material>
+            <script>
+              <uri>model://bin/tags</uri> <11>
+              <name>product_@(bin_count)</name> <12>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    @{bin_count += 1}
+  @[end for]
+@[end for]
+@[def wall(p1, p2, height)]
+  @{wall.count += 1}
+  @[if abs(p1[0]-p2[0]) < 0.01]
+    @{thickness_x = 0.1}
+    @{thickness_y = abs(p1[1]-p2[1])}
+  @[else]
+    @{thickness_x = abs(p1[0]-p2[0])}
+    @{thickness_y = 0.1}
+  @[end if]
+  <model name="wall_@(wall.count)">
+    <static>true</static>
+    <pose>@((p1[0]+p2[0])/2.) @((p1[1]+p2[1])/2.) @(height/2.) 0 0 0</pose>
+    <link name="link">
+      <collision name='visual'>
+        <geometry>
+          <box>
+            <size>@(thickness_x) @(thickness_y) @(height)</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>@(thickness_x) @(thickness_y) @(height)</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+@[end def]
+@{wall.count = 0}
+@( wall((-1.75, -1.75), ( 6.00 , -1.75), 1) )
+@( wall((-1.75, -1.75), (-1.75,   1.75), 1) )
+@( wall((-1.75,  1.75), ( 6.00,   1.75), 1) )
+@( wall(( 3.00,  0.75), ( 3.00,   1.75), 1) )
+@( wall(( 3.00, -0.75), ( 3.00,  -1.75), 1) )
+@( wall(( 6.00, -1.75), ( 6.00,  -1.00), 1) )
+@( wall(( 6.00,  0.00), ( 6.00,   1.75), 1) )
+@( wall(( 5.00, -1.75), ( 5.00,   1.75), 0.7) )
+  <model name="counter_top">
+    <static>true</static>
+    <pose>4.9 0 0.7 0 0 0</pose>
+    <link name="link">
+      <visual name="collision">
+        <geometry><box><size>0.4 3.5 0.05</size></box></geometry>
+      </visual>
+      <visual name="visual">
+        <geometry><box><size>0.4 3.5 0.05</size></box></geometry>
+      </visual>
+    </link>
+  </model>
+</world>
+</sdf>

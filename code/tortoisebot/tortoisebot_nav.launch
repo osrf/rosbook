@@ -1,0 +1,28 @@
+<launch>
+  <!-- Load the TortoiseBot URDF model into the parameter server -->
+  <param name="robot_description" textfile="$(find tortoisebot)/tortoisebot_nav.urdf" />
+  <!-- Start Gazebo with a world containing a large building-->
+  <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
+  <!-- include file="$(find gazebo_ros)/launch/empty_world.launch"/ -->
+  <!-- Spawn a TortoiseBot in Gazebo, taking the description from the
+       parameter server -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model tortoisebot -x 8 -y -8" />
+  <!-- Convert /joint_states messages published by Gazebo to /tf messages,
+       e.g., for rviz-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher"/>
+  <node name="map_server" pkg="map_server" type="map_server"
+        args="$(find mapping)/maps/willow.yaml"/>
+
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find tortoisebot)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tortoisebot)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find tortoisebot)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tortoisebot)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tortoisebot)/base_local_planner_params.yaml" command="load" />
+  </node>
+
+</launch>

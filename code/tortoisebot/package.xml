@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>tortoisebot</name>
+  <version>0.0.0</version>
+  <description>The tortoisebot package</description>
+  <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+  <license>BSD</license>
+  <author email="gerkey@osrfoundation.org">Brian Gerkey</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+  <export></export>
+</package>

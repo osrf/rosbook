@@ -1,0 +1,6 @@
+<launch>
+  <node name="listener" pkg="rospy_tutorials" 
+        type="listener" output="screen" />
+  <node name="add_two_ints_server" pkg="rospy_tutorials" 
+        type="add_two_ints_server" output="screen" />
+</launch>

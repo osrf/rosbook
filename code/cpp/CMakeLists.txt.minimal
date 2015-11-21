@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(cpp)
+
+find_package(catkin REQUIRED roscpp)
+
+
+add_executable(minimal src/minimal.cpp)
+
+target_link_libraries(minimal
+  ${catkin_LIBRARIES}
+)

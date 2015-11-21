@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>teleop_bot</name>
+  <version>0.0.0</version>
+  <description>The teleop_bot package</description>
+  <maintainer email="morgan@osrfoundation.org">Morgan Quigley</maintainer>
+  <license>Apache2</license>
+  <author email="morgan@osrfoundation.org">Morgan Quigley</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <export>
+  </export>
+</package>

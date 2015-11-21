@@ -1,0 +1,43 @@
+<?xml version='1.0'?>
+<sdf version ='1.4'>
+  <model name ='product_0'>
+    <link name ='link'>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0000417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000417</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.05 0.05 0.05</size></box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.05 0.05 0.05</size></box>
+        </geometry>
+        <material><script><name>Gazebo/Green</name></script></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

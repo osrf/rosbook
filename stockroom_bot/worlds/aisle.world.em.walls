@@ -1,0 +1,53 @@
+@[def wall(p1, p2, height)] <1>
+  @{wall.count += 1}
+  @[if abs(p1[0]-p2[0]) < 0.01] <2>
+    @{thickness_x = 0.1}
+    @{thickness_y = abs(p1[1]-p2[1])}
+  @[else]
+    @{thickness_x = abs(p1[0]-p2[0])}
+    @{thickness_y = 0.1}
+  @[end if]
+  <model name="wall_@(wall.count)"> <3>
+    <static>true</static>
+    <pose>@((p1[0]+p2[0])/2.) @((p1[1]+p2[1])/2.) @(height/2.) 0 0 0</pose>
+    <link name="link">
+      <collision name='visual'> <4>
+        <geometry>
+          <box>
+            <size>@(thickness_x) @(thickness_y) @(height)</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>@(thickness_x) @(thickness_y) @(height)</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+@[end def]
+@{wall.count = 0}
+@( wall((-1.75, -1.75), ( 6.00 , -1.75), 1) ) <5>
+@( wall((-1.75, -1.75), (-1.75,   1.75), 1) )
+@( wall((-1.75,  1.75), ( 6.00,   1.75), 1) )
+@( wall(( 3.00,  0.75), ( 3.00,   1.75), 1) )
+@( wall(( 3.00, -0.75), ( 3.00,  -1.75), 1) )
+@( wall(( 6.00, -1.75), ( 6.00,  -1.00), 1) )
+@( wall(( 6.00,  0.00), ( 6.00,   1.75), 1) )
+@( wall(( 5.00, -1.75), ( 5.00,   1.75), 0.7) )
+  <model name="counter_top">
+    <static>true</static>
+    <pose>4.9 0 0.7 0 0 0</pose>
+    <link name="link">
+      <visual name="collision">
+        <geometry><box><size>0.4 3.5 0.05</size></box></geometry>
+      </visual>
+      <visual name="visual">
+        <geometry><box><size>0.4 3.5 0.05</size></box></geometry>
+      </visual>
+    </link>
+  </model>
+</world>
+</sdf>

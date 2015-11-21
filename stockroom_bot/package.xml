@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <name>stockroom_bot</name>
+  <version>0.0.0</version>
+  <description>The stockroom_bot package</description>
+  <maintainer email="maintainer@example.com">Name of Maintainer</maintainer>
+  <license>BSD</license>
+  <author email="author@example.com">Name of Author</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+</package>

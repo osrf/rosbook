@@ -1,0 +1,16 @@
+[Event "Local Event"]
+[Site "Local Site"]
+[Date "2015.03.05"]
+[Round "1"]
+[White "Morgan Quigley"]
+[Black "PyChess.py"]
+[Result "0-1"]
+[ECO "B21"]
+[Time "22:26:00"]
+[PlyCount "34"]
+
+1. e2e4 c7c5 2. d2d4 c5d4 3. d1d4 b8c6 4. c2c4 c6d4 5. b1c3 d4c2+ 6. e1d1
+c2a1 7. a2a4 e7e5 8. c1g5 d8g5 9. c3d5 g5d8 10. f2f4 e5f4 11. g1f3 g8f6 12.
+d5f6+ d8f6 13. f1d3 f6b2 14. h1e1 b2g2 15. e1e2 g2f3 16. d1c1 f3d3 17. e2e1
+d3c2# 0-1
+

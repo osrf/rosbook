@@ -1,0 +1,3 @@
+footprint: [[0.35, 0.15], [0.35, -0.15], [-0.35, -0.15], [-0.35, 0.15]]
+observation_sources: laser_scan_sensor
+laser_scan_sensor: {sensor_frame: hokuyo_link, data_type: LaserScan, topic: scan, marking: true, clearing: true}

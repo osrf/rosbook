@@ -1,0 +1,11 @@
+# Hand-made
+controller_manager_ns: /
+controller_list:
+  - name: arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - hip
+      - shoulder
+      - elbow
+      - wrist

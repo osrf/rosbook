@@ -1,0 +1,34 @@
+@{from numpy import arange} <1>
+@{bin_count = 0}
+@[for side in ['left','right']] <2>
+  @[if side == 'left']
+    @{y = -1.5} <3>
+    @{yaw = 3.1415}
+  @[else]
+    @{y = 1.5}
+    @{yaw = 0}
+  @[end if]
+  @[for x in arange(-1.5, 1.5, 0.5)] <4>
+    <include>
+      <name>bin_@(bin_count)</name> <5>
+      <pose>@(x) @(y) 0.5 0 0 @(yaw)</pose> <6>
+      <uri>model://bin</uri> <7>
+    </include>
+    <model name="bin_@(bin_count)_tag"> <8>
+      <static>true</static>
+      <pose>@(x) @(y*1.125) 0.63 0 0 @(yaw)</pose> <9>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.2 0.01 0.2</size></box></geometry>
+          <material>
+            <script>
+              <uri>model://bin/tags</uri> <10>
+              <name>product_@(bin_count)</name> <11>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    @{bin_count += 1}
+  @[end for]
+@[end for]

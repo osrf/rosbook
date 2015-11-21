@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package>
+  <name>mapping</name>
+  <version>0.0.0</version>
+  <description>The mapping package</description>
+  <maintainer email="wdsmart@gmail.com">Bill Smart</maintainer>
+  <license>BSD</license>
+  <author email="wdsmart@gmail.com">Bill Smart</author>
+</package>

@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find stockroom_bot)/worlds/aisle.world"/>
+  </include>
+  <include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml"/>
+</launch>

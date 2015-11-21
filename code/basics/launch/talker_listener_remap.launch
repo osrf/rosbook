@@ -1,0 +1,9 @@
+<launch>
+  <node name="talker" pkg="rospy_tutorials" type="talker">
+    <remap from="chatter" to="my_chatter"/>
+  </node>
+  <node name="listener" pkg="rospy_tutorials" type="listener">
+    <remap from="chatter" to="my_chatter"/>
+  </node>
+</launch>
+

@@ -1,0 +1,17 @@
+<package>
+  <description brief="Programming Robots with ROS: The Basics">
+    Packages from Part 1 of Programming Robots with ROS.
+  </description>
+
+  <author>Bill Smart</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+
+  <url></url>
+
+  <depend package="rospy" />
+  <depend package="actionlib_msgs" />
+
+</package>
+
+

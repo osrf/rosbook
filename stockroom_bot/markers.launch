@@ -1,0 +1,66 @@
+<launch>
+  <arg name="marker_size" default="12.3"/> <!--<1>-->
+  <arg name="max_new_marker_error" default="0.2"/>
+  <arg name="max_track_error" default="0.8"/>
+  <arg name="cam_image_topic" default="/head_camera/rgb/image_raw"/>
+  <arg name="cam_info_topic" default="/head_camera/rgb/camera_info"/>
+  <arg name="output_frame" default="/base_link"/>
+  <node name="ar_track_alvar" pkg="ar_track_alvar"
+        type="individualMarkersNoKinect" respawn="false" output="screen" 
+        args="$(arg marker_size) $(arg max_new_marker_error) \
+              $(arg max_track_error) $(arg cam_image_topic)  \
+              $(arg cam_info_topic) $(arg output_frame)" /> <!--<2>-->
+  <arg name="tag_rot" default="0 0 0 0 0 -1.57"> <!--<3>-->
+  <arg name="tag_trans" default="0 -0.28 -0.1 0 0 0">
+  <!--<4>-->
+  <node pkg="tf" type="static_transform_publisher" name="ar_0_up"
+        args="$(arg tag_rot) ar_marker_0 ar_0_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_1_up"
+        args="$(arg tag_rot)  ar_marker_1 ar_1_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_2_up"
+        args="$(arg tag_rot) ar_marker_2 ar_2_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_3_up"
+        args="$(arg tag_rot) ar_marker_3 ar_3_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_4_up"
+        args="$(arg tag_rot) ar_marker_4 ar_4_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_5_up"
+        args="$(arg tag_rot) ar_marker_5 ar_5_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_6_up"
+        args="$(arg tag_rot) ar_marker_6 ar_6_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_7_up"
+        args="$(arg tag_rot) ar_marker_7 ar_7_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_8_up"
+        args="$(arg tag_rot) ar_marker_8 ar_8_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_9_up"
+        args="$(arg tag_rot) ar_marker_9 ar_9_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_10_up"
+        args="$(arg tag_rot) ar_marker_10 ar_10_up 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="ar_11_up"
+        args="$(arg tag_rot) ar_marker_11 ar_11_up 100"/>
+
+  <!--<5>-->
+  <node pkg="tf" type="static_transform_publisher" name="item_0"
+        args="$(arg tag_trans) ar_0_up item_0 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_1"
+        args="$(arg tag_trans) ar_1_up item_1 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_2"
+        args="$(arg tag_trans) ar_2_up item_2 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_3"
+        args="$(arg tag_trans) ar_3_up item_3 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_4"
+        args="$(arg tag_trans) ar_4_up item_4 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_5"
+        args="$(arg tag_trans) ar_5_up item_5 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_6"
+        args="$(arg tag_trans) ar_6_up item_6 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_7"
+        args="$(arg tag_trans) ar_7_up item_7 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_8"
+        args="$(arg tag_trans) ar_8_up item_8 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_9"
+        args="$(arg tag_trans) ar_9_up item_9 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_10"
+        args="$(arg tag_trans) ar_10_up item_10 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="item_11"
+        args="$(arg tag_trans) ar_11_up item_11 100"/>
+</launch>

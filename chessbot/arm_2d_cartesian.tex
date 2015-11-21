@@ -1,0 +1,11 @@
+\documentclass[convert={density=600}]{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+\draw[black,thick] (0,0) -- (3,0);
+\draw[black,thick] (2,0) -- (2,3);
+\filldraw[black] (0,0) circle (2pt) node[anchor=north] {0};
+\filldraw[black] (2,0) circle (2pt) node[anchor=north] {1};
+\filldraw[black] (2,1) circle (2pt) node[anchor=west]  {2};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,7 @@
+arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - hip
+    - shoulder
+    - elbow
+    - wrist
