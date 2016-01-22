@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # BEGIN ALL
 # BEGIN SHEBANG
 #!/usr/bin/env python
