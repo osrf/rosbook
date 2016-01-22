@@ -20,7 +20,7 @@ while not rospy.is_shutdown():
   else:
     cmd_vel_pub.publish(red_light_twist)
   # BEGIN PART_1
-  if light_change_time > rospy.Time.now(): #<5>
+  if rospy.Time.now() > light_change_time: #<5>
     driving_forward = not driving_forward
     light_change_time = rospy.Time.now() + rospy.Duration(3)
   # END PART_1
