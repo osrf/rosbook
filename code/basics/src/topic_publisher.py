@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # BEGIN ALL
-# BEGIN SHEBANG
-#!/usr/bin/env python
-# END SHEBANG
 
 # BEGIN IMPORT
 import rospy

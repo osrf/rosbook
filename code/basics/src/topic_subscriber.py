@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # BEGIN ALL
-#!/usr/bin/env python
-
 
 import rospy
 from std_msgs.msg import Int32
