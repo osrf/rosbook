@@ -56,7 +56,9 @@ class FakeSensor:
     def run(self):
         self.sensor = ActualFakeSensor()
         self.sensor.run()
-
+        
+    def value(self):
+        return self.sensor.value()
 
 if __name__ == '__main__':
     sensor = FakeSensor()
