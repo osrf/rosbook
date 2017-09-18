@@ -4,7 +4,8 @@
 
 bool count(cpp::WordCount::Request &req,  // <1>
 	   cpp::WordCount::Response &res) {
-  l = strlen(req.words);
+  int count = 0;
+  int l = req.words.length();
   if (l == 0)
     count = 0;
   else {
@@ -21,7 +22,7 @@ bool count(cpp::WordCount::Request &req,  // <1>
 
 
 int main(int argc, char **argv) {
-  ros::init(int argc, char **argv, "count_server");
+  ros::init(argc, argv, "count_server");
   ros::NodeHandle node;
 
   ros::ServiceServer service = node.advertiseService("count", count);  // <2>
