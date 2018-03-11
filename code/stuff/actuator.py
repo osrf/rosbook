@@ -1,6 +1,8 @@
 # BEGIN ALL
 #!/usr/bin/env python
 
+from math import fabs
+
 from fake_actuator import FakeActuator
 
 import rospy
