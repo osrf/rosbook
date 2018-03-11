@@ -42,7 +42,7 @@ if __name__ == '__main__':
         rospy.sleep(0.1)
         continue
 
-      (item_translation, item_orientation) = 
+      (item_translation, item_orientation) = \
         tf_listener.lookupTransform('/base_link', item_frame, t) # <8>
     except(tf.Exception, tf.LookupException,
            tf.ConnectivityException, tf.ExtrapolationException):
