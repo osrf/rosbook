@@ -5,7 +5,7 @@
 
 
 int main(int argc, char **argv) {
-  ros::init(argc, char **argv, "count_client");
+  ros::init(argc, argv, "count_client");
   ros::NodeHandle node;
 
   ros::ServiceClient client = node.serviceClient<cpp::WordCount>("count");  // <1>
