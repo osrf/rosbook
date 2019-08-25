@@ -2,7 +2,7 @@
 
 from math import pi
 
-from fake_sensor import FakeSensor
+from fake_sensor import FakeSensor as FakeSensorUI
 
 import rospy
 import tf
@@ -23,9 +23,8 @@ def callback(request):  # <1>
 
         
 if __name__ == '__main__':
-    sensor = FakeSensor()
+    sensor = FakeSensorUI()
 
     rospy.init_node('fake_sensor')
 
     service = rospy.Service('angle', FakeSensor, callback) # <2>
-
