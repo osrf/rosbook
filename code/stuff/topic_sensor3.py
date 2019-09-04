@@ -16,6 +16,7 @@ def make_quaternion(angle):
     return Quaternion(*q)
 
 def save_value(value):
+    global angle
     with lock: # <1>
         angle = value * 2 * pi / 100.0 # <2>
     
@@ -30,6 +31,7 @@ if __name__ == '__main__':
 
     pub = rospy.Publisher('angle', Quaternion, queue_size=10) 
 
+    global angle
     angle = None # <4>
     rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
