@@ -12,7 +12,7 @@ key_mapping = { 'w': [ 0, 1], 'x': [0, -1],
 
 def keys_cb(msg, twist_pub):
   # BEGIN CB
-  if len(msg.data) == 0 or not key_mapping.has_key(msg.data[0]):
+  if len(msg.data) == 0 or not msg.data[0] in key_mapping:
     return # unknown key.
   vels = key_mapping[msg.data[0]]
   # END CB

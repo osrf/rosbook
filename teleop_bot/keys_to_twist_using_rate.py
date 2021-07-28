@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # BEGIN ALL
 import rospy
 from std_msgs.msg import String
@@ -7,11 +7,10 @@ from geometry_msgs.msg import Twist
 key_mapping = { 'w': [ 0, 1], 'x': [0, -1], 
                 'a': [-1, 0], 'd': [1,  0], 
                 's': [ 0, 0] }
-g_last_twist = None 
 
 def keys_cb(msg, twist_pub):
   global g_last_twist
-  if len(msg.data) == 0 or not key_mapping.has_key(msg.data[0]):
+  if len(msg.data) == 0 or not msg.data[0] in key_mapping:
     return # unknown key.
   vels = key_mapping[msg.data[0]]
   g_last_twist.angular.z = vels[0]
