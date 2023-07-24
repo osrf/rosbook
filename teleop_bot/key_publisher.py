@@ -9,7 +9,7 @@ if __name__ == '__main__':
   rospy.init_node("keyboard_driver")
   rate = rospy.Rate(100)
   # BEGIN TERMIOS
-  old_attr = termios.tcgetattr(sys.stdin)
+  old_attr = termios.tcgetattr(sys.stdin.fileno())
   tty.setcbreak(sys.stdin.fileno())
   # END TERMIOS
   print "Publishing keystrokes. Press Ctrl-C to exit..."
