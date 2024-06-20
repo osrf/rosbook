@@ -50,13 +50,23 @@ class ActualFakeSensor:
 class FakeSensor:
     def __init__(self):
         thread = threading.Thread(target=self.run)
-        thread.daemon = True
+        thread.daemon = False
         thread.start()
+        self.cv = threading.Condition()
+        with self.cv:
+	        self.cv.wait()
 
     def run(self):
         self.sensor = ActualFakeSensor()
+        with self.cv:
+            self.cv.notify()
         self.sensor.run()
 
+    def value(self):
+        return self.sensor.value()
+
+    def register_callback(self, callback):
+        self.sensor.register_callback(callback)
 
 if __name__ == '__main__':
     sensor = FakeSensor()
